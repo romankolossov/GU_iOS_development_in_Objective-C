@@ -7,6 +7,7 @@
 
 #import "MainViewController.h"
 #import "CustomTableViewCell.h"
+#import "TableViewController.h"
 
 @interface MainViewController ()
 
@@ -38,16 +39,16 @@
     self.myTableView.backgroundColor = [UIColor redColor];
     
     [self.view addSubview:_myTableView];
-    self.cellIdentifier = @"CellIdentifier";
+    self.cellIdentifier = @"MyCellIdentifier";
 }
 
 - (void)configureMainVC {
     //showTableViewControllerButton
-    CGRect showTableVCButtonFrame = CGRectMake(60, 11, [UIScreen mainScreen].bounds.size.width - 120, 30);
+    CGRect showTableVCButtonFrame = CGRectMake(80, 11, [UIScreen mainScreen].bounds.size.width - 160, 30);
     UIButton *showTableVCButton = [UIButton buttonWithType:UIButtonTypeSystem];
     
     showTableVCButton.frame = showTableVCButtonFrame;
-    [showTableVCButton setTitle:@"Show TableViewController" forState:UIControlStateNormal];
+    [showTableVCButton setTitle:@"Show TableVC" forState:UIControlStateNormal];
     showTableVCButton.backgroundColor = [UIColor lightGrayColor];
     showTableVCButton.tintColor = [UIColor whiteColor];
     [showTableVCButton addTarget:self action:@selector(openTableViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -58,20 +59,22 @@
 // MARK: - Actions
 
 - (void)openTableViewController{
-    //SecondViewController *secondVC = [[SecondViewController alloc] init];
+    TableViewController *tableVC = [[TableViewController alloc] init];
     
-    //[self.navigationController showViewController:secondVC sender:self];
+    //[self.navigationController showViewController:tableVC sender:self];
     
-    //[self.navigationController pushViewController:secondVC animated:YES];
+    [self.navigationController pushViewController:tableVC animated:YES];
     
-    //[self presentViewController:secondVC animated:YES completion:nil];
-    
+    //[self presentViewController:tableVC animated:YES completion:nil];
 }
 
 // MARK: - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.elements.count;
 }
 
