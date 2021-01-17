@@ -13,6 +13,7 @@
 		C8F1FBC825B43E19002133E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8F1FBC725B43E19002133E7 /* Assets.xcassets */; };
 		C8F1FBCB25B43E19002133E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F1FBC925B43E19002133E7 /* LaunchScreen.storyboard */; };
 		C8F1FBCE25B43E19002133E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F1FBCD25B43E19002133E7 /* main.m */; };
+		C8F1FBDF25B46244002133E7 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F1FBDE25B46244002133E7 /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		C8F1FBCA25B43E19002133E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8F1FBCC25B43E19002133E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8F1FBCD25B43E19002133E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8F1FBDD25B46244002133E7 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		C8F1FBDE25B46244002133E7 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				C8F1FBBF25B43E16002133E7 /* SceneDelegate.m */,
 				C8F1FBC125B43E16002133E7 /* MainViewController.h */,
 				C8F1FBC225B43E16002133E7 /* MainViewController.m */,
+				C8F1FBDD25B46244002133E7 /* CustomTableViewCell.h */,
+				C8F1FBDE25B46244002133E7 /* CustomTableViewCell.m */,
 				C8F1FBC725B43E19002133E7 /* Assets.xcassets */,
 				C8F1FBC925B43E19002133E7 /* LaunchScreen.storyboard */,
 				C8F1FBCC25B43E19002133E7 /* Info.plist */,
@@ -144,6 +149,7 @@
 				C8F1FBC325B43E16002133E7 /* MainViewController.m in Sources */,
 				C8F1FBBD25B43E16002133E7 /* AppDelegate.m in Sources */,
 				C8F1FBCE25B43E19002133E7 /* main.m in Sources */,
+				C8F1FBDF25B46244002133E7 /* CustomTableViewCell.m in Sources */,
 				C8F1FBC025B43E16002133E7 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
