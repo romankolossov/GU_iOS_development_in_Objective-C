@@ -43,6 +43,8 @@
 }
 
 - (void)configureMainVC {
+    self.title = @"Table View";
+    
     //showTableViewControllerButton
     CGRect showTableVCButtonFrame = CGRectMake(80, 11, [UIScreen mainScreen].bounds.size.width - 160, 30);
     UIButton *showTableVCButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -53,7 +55,8 @@
     showTableVCButton.tintColor = [UIColor whiteColor];
     [showTableVCButton addTarget:self action:@selector(openTableViewController) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.navigationController.navigationBar addSubview:showTableVCButton];
+    self.navigationItem.titleView = showTableVCButton;
+   // [self.navigationController.navigationBar addSubview:showTableVCButton];
 }
 
 // MARK: - Actions

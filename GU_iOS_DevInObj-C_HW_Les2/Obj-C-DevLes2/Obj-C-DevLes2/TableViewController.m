@@ -17,8 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.dataSource = self;
+    self.title = @"TableVC";
     
+    self.tableView.dataSource = self;
     self.cellTableVCIdentifier = @"CellTableVCIdentifier";
     
     // Uncomment the following line to preserve selection between presentations.
