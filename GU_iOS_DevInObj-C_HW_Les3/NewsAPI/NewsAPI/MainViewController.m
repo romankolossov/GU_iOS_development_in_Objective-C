@@ -7,12 +7,14 @@
 
 #import "MainViewController.h"
 #import "NewsTableViewCell.h"
+#import "NewsAPIManager.h"
 
 @interface MainViewController ()
 
 @property (strong, nonnull) UITableView *newsTableView;
 @property (strong) NSString *newsCellIdentifier;
-@property (strong, nonnull) NSMutableArray *newsElements;
+//@property (strong, nonnull) NSMutableArray *newsElements;
+@property (strong) NSMutableArray *newsElements;
 
 @end
 
@@ -22,7 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.newsElements = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight", nil];
+    //self.newsElements = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight", nil];
+    
+    [[NewsAPIManager sharedInstance] newsWithCompletion:^(NSArray *newsElements) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.newsElements = newsElements;
+        });
+    }];
     
     [self configureNewsTableView];
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C86BADBA25BC833B00F280D4 /* NewsAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADB925BC833B00F280D4 /* NewsAPIManager.m */; };
 		C871094425BC50F900FF7F91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C871094325BC50F900FF7F91 /* AppDelegate.m */; };
 		C871094725BC50F900FF7F91 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C871094625BC50F900FF7F91 /* SceneDelegate.m */; };
 		C871094A25BC50F900FF7F91 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C871094925BC50F900FF7F91 /* MainViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C86BADB825BC833B00F280D4 /* NewsAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsAPIManager.h; sourceTree = "<group>"; };
+		C86BADB925BC833B00F280D4 /* NewsAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsAPIManager.m; sourceTree = "<group>"; };
 		C871093F25BC50F900FF7F91 /* NewsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C871094225BC50F900FF7F91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C871094325BC50F900FF7F91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				C871094625BC50F900FF7F91 /* SceneDelegate.m */,
 				C871094825BC50F900FF7F91 /* MainViewController.h */,
 				C871094925BC50F900FF7F91 /* MainViewController.m */,
+				C86BADB825BC833B00F280D4 /* NewsAPIManager.h */,
+				C86BADB925BC833B00F280D4 /* NewsAPIManager.m */,
 				C871095F25BC541B00FF7F91 /* NewsTableViewCell.h */,
 				C871096025BC541B00FF7F91 /* NewsTableViewCell.m */,
 				C871094E25BC50FD00FF7F91 /* Assets.xcassets */,
@@ -151,6 +156,7 @@
 				C871094425BC50F900FF7F91 /* AppDelegate.m in Sources */,
 				C871095525BC50FD00FF7F91 /* main.m in Sources */,
 				C871094725BC50F900FF7F91 /* SceneDelegate.m in Sources */,
+				C86BADBA25BC833B00F280D4 /* NewsAPIManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
