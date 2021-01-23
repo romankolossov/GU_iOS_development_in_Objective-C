@@ -7,8 +7,9 @@
 
 #import "NewsAPIManager.h"
 
-#define API_TOKEN @"0fa373e04e1c63743565bf8e13cc1486"
-#define API_URL_IP_ADDRESS @"https://api.travelpayouts.com/v1/prices/cheap"
+#define API_KEY @"0fa373e04e1c63743565bf8e13cc1486"
+#define API_URL_IP_ADDRESS @"https://newsapi.org/v2/top-headlines?country=us"
+// https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY
 
 @implementation NewsAPIManager
 
@@ -33,23 +34,16 @@
 //}
 
 - (void)newsWithCompletion:(void (^)(NSArray *newsElements))completion {
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@&token=%@", API_URL_IP_ADDRESS, API_TOKEN];
+    NSString *urlString = [NSString stringWithFormat:@"%@&apiKey=%@", API_URL_IP_ADDRESS, API_KEY];
     
     [self load:urlString withCompletion:^(id  _Nullable result) {
         NSDictionary *response = result;
         
         if (response) {
-            NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destionation];
-            NSMutableArray *array = [NSMutableArray new];
-            for (NSString *key in json) {
-                NSDictionary *value = [json valueForKey: key];
-                Ticket *ticket = [[Ticket alloc] initWithDictionary:value];
-                ticket.from = request.origin;
-                ticket.to = request.destionation;
-                [array addObject:ticket];
-            }
+            NSArray *json = [response valueForKey:@"title"];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                completion(array);
+                completion(json);
             });
         }
     }];
