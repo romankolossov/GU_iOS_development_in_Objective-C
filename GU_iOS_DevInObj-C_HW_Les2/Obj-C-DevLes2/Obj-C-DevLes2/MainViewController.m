@@ -34,12 +34,17 @@
 - (void)configureTableView {
     self.myTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
+    // MARK: Note
+    // - first set value for cellIdentifier then register cell
+    // - if use register cell then no need to check "if (!myCell)" in cellForRowAtIndexPath delagate method and if not create myCell there
+    self.cellIdentifier = @"MyCellIdentifier";
+    [self.myTableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
+    
     self.myTableView.dataSource = self;
     //self.myTableView.delegate = self;
+
     self.myTableView.backgroundColor = [UIColor redColor];
-    
     [self.view addSubview:_myTableView];
-    self.cellIdentifier = @"MyCellIdentifier";
 }
 
 - (void)configureMainVC {
@@ -84,9 +89,14 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CustomTableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     
+    // MARK: Note
+    // use this check if there is no cell register done in configureTable method
+    /*
     if (!myCell) {
         myCell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.cellIdentifier];
     }
+     */
+    
     myCell.leftLabel.text = [NSString stringWithFormat:@"left %@", self.elements[indexPath.row]];
     myCell.rightLabel.text = [NSString stringWithFormat:@"right %@", self.elements[indexPath.row]];
     
