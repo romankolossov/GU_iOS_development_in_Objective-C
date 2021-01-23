@@ -31,7 +31,7 @@
         NSDictionary *response = result;
         
         if (response) {
-            NSArray *json = [response valueForKey:@"title"];
+            NSArray *json = [[response valueForKey:@"articles"] valueForKey:@"title"];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(json);

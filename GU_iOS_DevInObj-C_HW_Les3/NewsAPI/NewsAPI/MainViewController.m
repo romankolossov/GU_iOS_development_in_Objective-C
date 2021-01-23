@@ -23,19 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.newsElements = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight", nil];
+    self.newsElements = [[NSMutableArray alloc] init];
     
-    [[NewsAPIManager sharedInstance] newsWithCompletion:^(NSArray *newsElements) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.newsElements = newsElements;
-//        });
-        
-        for (int i = 0; i < 11; i++) {
-            [[self newsElements] addObject:newsElements[i]];
-        }
-    }];
-    
+   
     [self configureNewsTableView];
+    [self loadNews];
 }
 
 // MARK: - Configure
@@ -58,6 +50,33 @@
     [self.view addSubview:_newsTableView];
 }
 
+// MARK: - Major methods
+
+- (void)loadNews {
+    [[NewsAPIManager sharedInstance] newsWithCompletion:^(NSArray *newsElements) {
+        
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        //            for (NSString *element in newsElements) {
+        //                [[self newsElements] addObject:element];
+        //            }
+        //           // self.newsElements = newsElements;
+        //        });
+        
+        //        for (int i = 0; i < 3; i++) {
+        //            [[self newsElements] addObject:newsElements[i]];
+        //        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (int i = 0; i < 3; i++) {
+                //[[self newsElements] addObject:newsElements[i]];
+                [self -> _newsElements addObject:newsElements[i]];
+            }
+            [self.newsTableView reloadData];
+            NSLog(@"newsElements.count is: @%ld", self.newsElements.count);
+        });
+    }];
+}
+
 // MARK: - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,7 +84,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 11;
+    return self.newsElements.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -73,13 +92,12 @@
     
     // MARK: Note
     // use this check if there is no cell register done in configureTable method
-    /*
-    if (!myCell) {
-     newsCell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.newsCellIdentifier];
-    }
-     */
     
-    newsCell.newsTextView.text = [NSString stringWithFormat:@"News %@", self.newsElements[indexPath.row]];
+//    if (!newsCell) {
+//     newsCell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.newsCellIdentifier];
+//    }
+     
+    newsCell.newsTextView.text = [NSString stringWithFormat:@"%@", self.newsElements[indexPath.row]];
 
     return newsCell;
 }
