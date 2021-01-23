@@ -15,18 +15,31 @@
 
 @implementation TableViewController
 
+// MARK: - LifeCycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"TableVC";
-    
-    self.tableView.dataSource = self;
-    self.cellTableVCIdentifier = @"CellTableVCIdentifier";
+    [self configureTableView];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+// MARK: - Configure
+
+- (void)configureTableView {
+    self.cellTableVCIdentifier = @"CellTableVCIdentifier";
+    
+    self.title = @"TableVC";
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    self.tableView.backgroundColor = [UIColor purpleColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - Table view data source
@@ -45,6 +58,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.cellTableVCIdentifier];
     }
+    cell.backgroundColor = [UIColor greenColor];
+    
     if (indexPath.row % 2 == 0) {
         cell.imageView.image = [UIImage imageNamed:@"Ferrari"];
         cell.textLabel.text = nil;
@@ -53,6 +68,12 @@
         cell.imageView.image = nil;
     }
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88.0;
 }
 
 

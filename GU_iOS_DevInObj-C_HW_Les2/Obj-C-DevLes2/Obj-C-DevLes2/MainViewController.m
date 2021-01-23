@@ -41,9 +41,10 @@
     [self.myTableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:self.cellIdentifier];
     
     self.myTableView.dataSource = self;
-    //self.myTableView.delegate = self;
+    self.myTableView.delegate = self;
 
     self.myTableView.backgroundColor = [UIColor redColor];
+    self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_myTableView];
 }
 
@@ -76,7 +77,7 @@
     //[self presentViewController:tableVC animated:YES completion:nil];
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -107,6 +108,12 @@
     [self.elements removeObjectAtIndex:indexPath.row];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+// MARK: - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 48.0;
 }
 
 @end
