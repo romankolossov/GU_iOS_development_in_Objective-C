@@ -13,8 +13,7 @@
 
 @property (strong, nonnull) UITableView *newsTableView;
 @property (strong) NSString *newsCellIdentifier;
-//@property (strong, nonnull) NSMutableArray *newsElements;
-@property (strong) NSMutableArray *newsElements;
+@property (strong, nonnull) NSMutableArray *newsElements;
 
 @end
 
@@ -27,9 +26,13 @@
     //self.newsElements = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight", nil];
     
     [[NewsAPIManager sharedInstance] newsWithCompletion:^(NSArray *newsElements) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.newsElements = newsElements;
-        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.newsElements = newsElements;
+//        });
+        
+        for (int i = 0; i < 11; i++) {
+            [[self newsElements] addObject:newsElements[i]];
+        }
     }];
     
     [self configureNewsTableView];
@@ -62,7 +65,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.newsElements.count;
+    return 11;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

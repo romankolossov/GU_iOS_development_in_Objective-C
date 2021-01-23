@@ -7,7 +7,7 @@
 
 #import "NewsAPIManager.h"
 
-#define API_KEY @"0fa373e04e1c63743565bf8e13cc1486"
+#define API_KEY @"3ac24c1603954573bb26d9eb8e2ceaa6"
 #define API_URL_IP_ADDRESS @"https://newsapi.org/v2/top-headlines?country=us"
 // https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY
 
@@ -23,15 +23,6 @@
 }
 
 // MARK: Major methods
-
-//- (void)newsWithCompletion:(void (^)(NSString *ipAddress))completion {
-//    NSString *newsURL = [NSString stringWithFormat:@"%@%@", API_URL_IP_ADDRESS, API_TOKEN ];
-//
-//    [self load:newsURL withCompletion:^(id  _Nullable result) {
-//        NSDictionary *json = result;
-//        completion([json valueForKey:@"ip"]);
-//    }];
-//}
 
 - (void)newsWithCompletion:(void (^)(NSArray *newsElements))completion {
     NSString *urlString = [NSString stringWithFormat:@"%@&apiKey=%@", API_URL_IP_ADDRESS, API_KEY];
