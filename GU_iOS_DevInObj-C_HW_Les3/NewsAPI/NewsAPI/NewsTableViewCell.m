@@ -25,8 +25,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        self.contentView.backgroundColor = [UIColor yellowColor];
-        CGRect newsTextViewFrame = CGRectMake(11, 11, [UIScreen mainScreen].bounds.size.width - 22, 180);
+        self.contentView.backgroundColor = [UIColor greenColor];
+        CGRect newsTextViewFrame = CGRectMake(11, 11, [UIScreen mainScreen].bounds.size.width - 22, 80);
         
         _newsTextView = [[UITextView alloc] initWithFrame:newsTextViewFrame];
         _newsTextView.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];

@@ -23,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.newsElements = [[NSMutableArray alloc] init];
+    [self configureMainVC];
     
-   
     [self configureNewsTableView];
     [self loadNews];
 }
@@ -39,39 +38,34 @@
     // - first set value for cellIdentifier then register cell
     // - if use register cell then no need to check "if (!myCell)" in cellForRowAtIndexPath delagate method and if not create myCell there
     self.newsCellIdentifier = @"NewsCellIdentifier";
-    
     [self.newsTableView registerClass:[NewsTableViewCell class] forCellReuseIdentifier:self.newsCellIdentifier];
     
     self.newsTableView.dataSource = self;
     self.newsTableView.delegate = self;
 
-    self.newsTableView.backgroundColor = [UIColor redColor];
+    self.newsTableView.backgroundColor = [UIColor yellowColor];
     self.newsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.view addSubview:_newsTableView];
+}
+
+- (void)configureMainVC {
+    self.title = @"News API";
 }
 
 // MARK: - Major methods
 
 - (void)loadNews {
+    self.newsElements = [[NSMutableArray alloc] init];
+    
     [[NewsAPIManager sharedInstance] newsWithCompletion:^(NSArray *newsElements) {
-        
-        //        dispatch_async(dispatch_get_main_queue(), ^{
-        //            for (NSString *element in newsElements) {
-        //                [[self newsElements] addObject:element];
-        //            }
-        //           // self.newsElements = newsElements;
-        //        });
-        
-        //        for (int i = 0; i < 3; i++) {
-        //            [[self newsElements] addObject:newsElements[i]];
-        //        }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            for (int i = 0; i < 3; i++) {
-                //[[self newsElements] addObject:newsElements[i]];
-                [self -> _newsElements addObject:newsElements[i]];
+            
+            for (NSString *element in newsElements) {
+                [[self newsElements] addObject:element];
             }
             [self.newsTableView reloadData];
+            
             NSLog(@"newsElements.count is: @%ld", self.newsElements.count);
         });
     }];
@@ -92,21 +86,20 @@
     
     // MARK: Note
     // use this check if there is no cell register done in configureTable method
-    
-//    if (!newsCell) {
-//     newsCell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.newsCellIdentifier];
-//    }
-     
-    newsCell.newsTextView.text = [NSString stringWithFormat:@"%@", self.newsElements[indexPath.row]];
+    /*
+    if (!newsCell) {
+     newsCell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.newsCellIdentifier];
+    }
+     */
+    newsCell.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
 
     return newsCell;
 }
 
-
 // MARK: - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 188.0;
+    return 88.0;
 }
 
 @end

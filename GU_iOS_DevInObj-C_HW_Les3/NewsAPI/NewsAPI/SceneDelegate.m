@@ -23,11 +23,10 @@
     
     MainViewController *mainVC = [[MainViewController alloc] init];
     
-    //UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     
-    //self.window.rootViewController = navigationVC;
-    self.window.rootViewController = mainVC;
+    self.window.rootViewController = navigationVC;
     [self.window setWindowScene:windowScene];
     
     
