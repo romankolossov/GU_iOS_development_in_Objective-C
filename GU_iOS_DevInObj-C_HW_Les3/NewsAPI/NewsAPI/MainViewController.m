@@ -12,6 +12,7 @@
 
 @property (strong, nonnull) UITableView *newsTableView;
 @property (strong) NSString *newsCellIdentifier;
+@property (strong, nonnull) NSMutableArray *newsElements;
 
 @end
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.newsElements = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight", nil];
     
     [self configureNewsTableView];
 }
@@ -52,7 +54,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 21;
+    return self.newsElements.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -66,7 +68,7 @@
     }
      */
     
-    newsCell.newsTextView.text = @"Hello World!";
+    newsCell.newsTextView.text = [NSString stringWithFormat:@"News %@", self.newsElements[indexPath.row]];
 
     return newsCell;
 }
