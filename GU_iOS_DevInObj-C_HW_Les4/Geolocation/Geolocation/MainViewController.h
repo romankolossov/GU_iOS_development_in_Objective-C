@@ -6,8 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
 
 @end
