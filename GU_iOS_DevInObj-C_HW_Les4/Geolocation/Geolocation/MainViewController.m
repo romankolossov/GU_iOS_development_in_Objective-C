@@ -21,9 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self configureMap];
+    
     [self configureMoscowAnnotation];
+    [self.mapView setDelegate:self];
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:55.74188 longitude:37.60241];
+    [self addressFromLocation:location];
+    [self locationFromAddress:@"Обыденский 2-й переулок, 13"];
 }
 
 // MARK: - Configure
@@ -50,11 +55,50 @@
     [self.mapView addAnnotation:self.annotation];
 }
 
+// MARK: - Major methods
+
+- (void)addressFromLocation:(CLLocation *)location {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            
+            for (MKPlacemark *placemark in placemarks) {
+                NSLog(@"@%@", placemark.name);
+            }
+        }
+    }];
+}
+
+- (void)locationFromAddress:(NSString *)address {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            
+            for (MKPlacemark *placemark in placemarks) {
+                NSLog(@"%@", placemark.location);
+            }
+        }
+    }];
+}
+
 // MARK: - MKMapViewDelegate methods
 
-//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-//
-//}
-
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    static NSString *identifier = @"MarkerIdentifier";
+    
+    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
+    if (!annotationView) {
+        annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        annotationView.canShowCallout = YES;
+        annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    annotationView.annotation = annotation;
+    
+    return  annotationView;
+}
 
 @end
