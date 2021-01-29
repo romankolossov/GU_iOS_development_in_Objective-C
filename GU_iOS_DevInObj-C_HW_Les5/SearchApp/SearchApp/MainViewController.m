@@ -6,6 +6,7 @@
 //
 
 #import "MainViewController.h"
+#import "CustomCollectionViewCell.h"
 
 @interface MainViewController ()
 
@@ -39,7 +40,9 @@
     
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:_identifier];
+    
+    //[_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:_identifier];
+    [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:_identifier];
     
     [self.view addSubview:_collectionView];
 }
@@ -55,9 +58,11 @@
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
+    //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor greenColor];
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
+   
+    cell.carLabel.text = @"Hello, Car!";
     
     return  cell;
 }

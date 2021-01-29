@@ -13,6 +13,7 @@
 		C86BADFD25C259D700F280D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C86BADFC25C259D700F280D4 /* Assets.xcassets */; };
 		C86BAE0025C259D700F280D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C86BADFE25C259D700F280D4 /* LaunchScreen.storyboard */; };
 		C86BAE0325C259D700F280D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BAE0225C259D700F280D4 /* main.m */; };
+		C86BAE0E25C3A51E00F280D4 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BAE0D25C3A51E00F280D4 /* CustomCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		C86BADFF25C259D700F280D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C86BAE0125C259D700F280D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C86BAE0225C259D700F280D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C86BAE0C25C3A51E00F280D4 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		C86BAE0D25C3A51E00F280D4 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				C86BADF425C259C900F280D4 /* SceneDelegate.m */,
 				C86BADF625C259C900F280D4 /* MainViewController.h */,
 				C86BADF725C259C900F280D4 /* MainViewController.m */,
+				C86BAE0C25C3A51E00F280D4 /* CustomCollectionViewCell.h */,
+				C86BAE0D25C3A51E00F280D4 /* CustomCollectionViewCell.m */,
 				C86BADFC25C259D700F280D4 /* Assets.xcassets */,
 				C86BADFE25C259D700F280D4 /* LaunchScreen.storyboard */,
 				C86BAE0125C259D700F280D4 /* Info.plist */,
@@ -145,6 +150,7 @@
 				C86BADF225C259C900F280D4 /* AppDelegate.m in Sources */,
 				C86BAE0325C259D700F280D4 /* main.m in Sources */,
 				C86BADF525C259C900F280D4 /* SceneDelegate.m in Sources */,
+				C86BAE0E25C3A51E00F280D4 /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
