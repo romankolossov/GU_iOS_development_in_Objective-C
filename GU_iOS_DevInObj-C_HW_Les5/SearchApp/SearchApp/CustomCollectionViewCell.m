@@ -26,13 +26,17 @@
 -(void)configureCell {
     self.backgroundColor = [UIColor greenColor];
     
-    CGRect carLabelFrame = CGRectMake(0, 0, self.bounds.size.width, 40);
-    _carLabel = [[UILabel alloc] initWithFrame:carLabelFrame];
-    [self.contentView addSubview:_carLabel];
+    CGRect carLabelFrame = CGRectMake(0, 0, self.bounds.size.width, 18);
+    self.carLabel = [[UILabel alloc] initWithFrame:carLabelFrame];
+    self.carLabel.font = [UIFont italicSystemFontOfSize:12];
+    self.carLabel.textColor = [UIColor blueColor];
+    self.carLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:self.carLabel];
     
-    CGRect carImageViewFrame = CGRectMake(0, 50, self.bounds.size.width, 50);
-    _carImageView = [[UIImageView alloc] initWithFrame:carImageViewFrame];
-    [self.contentView addSubview:_carImageView];
+    CGRect carImageViewFrame = CGRectMake(0, 20, self.bounds.size.width, 80);
+    self.carImageView = [[UIImageView alloc] initWithFrame:carImageViewFrame];
+    self.carImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.contentView addSubview:self.carImageView];
 }
 
 @end
