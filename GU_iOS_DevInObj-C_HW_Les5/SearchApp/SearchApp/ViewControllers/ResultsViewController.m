@@ -28,12 +28,15 @@
 //MARK: - Configure
 
 - (void)configureResultsVC {
-    self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.title = @"Car search results";
+    
+    self.navigationController.navigationBar.prefersLargeTitles = NO;
 }
 
 - (void)configureCollectionView {
     _identifier = @"ResultCellIdentifier";
+    // it is possible to use the same identifier name for cell as in the MainVC
+    //_identifier = @"CellIdentifier";
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.minimumLineSpacing = 10.0;
@@ -80,6 +83,5 @@
     }
     return  cell;
 }
-
 
 @end

@@ -11,11 +11,11 @@
 
 @interface MainViewController ()
 
-@property (nonatomic, strong) UISearchController *searchController;
-@property (nonatomic, strong) ResultsViewController *resultsController;
-
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonnull) NSMutableArray *carArray;
+
+@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) ResultsViewController *resultsController;
 
 @end
 
@@ -35,8 +35,9 @@
 
 //MARK: - Configure
 - (void)configureMainVC {
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Cars";
+    
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
 
 - (void)configureResultsVC {
@@ -126,8 +127,34 @@
 
 - (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {
     if (searchController.searchBar.text) {
-        _resultsController.results = [self.carArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchController.searchBar.text]];
-        [_resultsController update];
+        
+        NSMutableArray *carNames = [[NSMutableArray alloc] init];
+        NSArray *resultNames = [[NSArray alloc] init];
+        NSMutableArray *resultCars = [[NSMutableArray alloc] init];
+        
+        for (id car in self.carArray) {
+            for (id key in car) {
+                
+                [carNames addObject:(NSString *)key];
+            }
+        }
+        resultNames = [carNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchController.searchBar.text]];
+        
+        for (id car in self.carArray) {
+            for (id carName in resultNames) {
+                for (id key in car) {
+                    if (carName == (NSString *)key) {
+                        
+                        [resultCars addObject:car];
+                    }
+                }
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resultsController.results = resultCars;
+            
+            [self.resultsController update];
+        });
     }
 }
 
