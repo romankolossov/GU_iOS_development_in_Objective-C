@@ -11,7 +11,7 @@
 @interface MainViewController ()
 
 @property (strong, nonatomic) NSString *identifier;
-@property (strong, nonnull) NSMutableArray *carsArray;
+@property (strong, nonnull) NSMutableArray *carArray;
 
 @end
 
@@ -56,26 +56,26 @@
 //MARK: - Setup data
 
 -(void)setupData {
-    self.carsArray = [[NSMutableArray alloc] init];
+    self.carArray = [[NSMutableArray alloc] init];
     
-    NSArray *carsPhotos = [[NSArray alloc] init];
-    NSArray *carsNames = [[NSArray alloc] init];
+    NSArray *carPhotos = [[NSArray alloc] init];
+    NSArray *carNames = [[NSArray alloc] init];
     
-    carsPhotos= @[@"Acura.jpg", @"Alfa_Romeo.jpg", @"Aston_Martin.jpg", @"Audi.jpg", @"Bentley.jpg", @"BMW.jpg", @"Citroen.jpg", @"Ferrari.jpg", @"Jaguar.jpg", @"Land_Rover.jpg", @"Mercedes-Benz.jpg", @"Porsche.jpg", @"Rolls-Roys.jpg", @"Volvo.jpg"];
+    carPhotos= @[@"Acura.jpg", @"Alfa_Romeo.jpg", @"Aston_Martin.jpg", @"Audi.jpg", @"Bentley.jpg", @"BMW.jpg", @"Citroen.jpg", @"Ferrari.jpg", @"Jaguar.jpg", @"Land_Rover.jpg", @"Mercedes-Benz.jpg", @"Porsche.jpg", @"Rolls-Roys.jpg", @"Volvo.jpg"];
     
-    carsNames = @[@"Acura", @"Alfa_Romeo", @"Aston_Martin", @"Audi", @"Bentley", @"BMW", @"Citroen", @"Ferrari", @"Jaguar", @"Land_Rover", @"Mercedes-Benz", @"Porsche", @"Rolls-Roys", @"Volvo"];
+    carNames = @[@"Acura", @"Alfa Romeo", @"Aston Martin", @"Audi", @"Bentley", @"BMW", @"Citroen", @"Ferrari", @"Jaguar", @"Land Rover", @"Mercedes-Benz", @"Porsche", @"Rolls-Roys", @"Volvo"];
     
-    NSDictionary *carDictionary = [[NSDictionary alloc] initWithObjects:carsPhotos forKeys:carsNames];
+    NSDictionary *carDictionary = [[NSDictionary alloc] initWithObjects:carPhotos forKeys:carNames];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         for (id key in carDictionary) {
+            
             id objects[] = {carDictionary[key]};
             id keys[] = {key};
-            
             NSDictionary *car = [[NSDictionary alloc] initWithObjects:objects forKeys:keys count:1];
-            //NSDictionary *carDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys count:1];
+            //NSDictionary *car = [NSDictionary dictionaryWithObjects:objects forKeys:keys count:1];
     
-            [[self carsArray] addObject:car];
+            [[self carArray] addObject:car];
         }
         [[self collectionView] reloadData];
     });
@@ -88,23 +88,21 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.carsArray.count;
+    return self.carArray.count;
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
     //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
     
-    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:_identifier forIndexPath:indexPath];
-    NSDictionary *car = self.carsArray[indexPath.row];
+    NSDictionary *car = self.carArray[indexPath.row];
     
     for (id key in car) {
+        
         cell.carLabel.text = (NSString *)key;
         cell.carImageView.image = [UIImage imageNamed:car[key]];
     }
-   
-    
     return  cell;
 }
-
 
 @end
