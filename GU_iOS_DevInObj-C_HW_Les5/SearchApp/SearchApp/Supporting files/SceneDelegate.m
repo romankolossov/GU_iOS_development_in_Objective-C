@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "MainViewController.h"
+//#import "ResultsViewController.h"
 
 @interface SceneDelegate ()
 
@@ -22,6 +23,7 @@
     [self.window makeKeyAndVisible];
     
     MainViewController *mainVC = [[MainViewController alloc] init];
+    //ResultsViewController *mainVC = [[ResultsViewController alloc] init];
     
     UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     UIWindowScene *windowScene = (UIWindowScene *)scene;

@@ -7,8 +7,12 @@
 
 #import "MainViewController.h"
 #import "CustomCollectionViewCell.h"
+#import "ResultsViewController.h"
 
 @interface MainViewController ()
+
+@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) ResultsViewController *resultsController;
 
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonnull) NSMutableArray *carArray;
@@ -23,13 +27,26 @@
     [super viewDidLoad];
     [self configureMainVC];
     
+    [self configureResultsVC];
     [self configureCollectionView];
+    
     [self setupData];
 }
 
 //MARK: - Configure
 - (void)configureMainVC {
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Cars";
+}
+
+- (void)configureResultsVC {
+    _resultsController = [[ResultsViewController alloc] init];
+    
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultsController];
+    _searchController.searchResultsUpdater = self;
+    self.navigationItem.searchController = _searchController;
+    
+    self.navigationItem.hidesSearchBarWhenScrolling = YES;
 }
 
 - (void)configureCollectionView {
@@ -103,6 +120,15 @@
         cell.carImageView.image = [UIImage imageNamed:car[key]];
     }
     return  cell;
+}
+
+//MARK: - UISearchResultsUpdating delegate methods
+
+- (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {
+    if (searchController.searchBar.text) {
+        _resultsController.results = [self.carArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchController.searchBar.text]];
+        [_resultsController update];
+    }
 }
 
 @end

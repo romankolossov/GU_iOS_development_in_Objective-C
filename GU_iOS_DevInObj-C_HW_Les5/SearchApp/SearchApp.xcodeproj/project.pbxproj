@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8590E1625C6DBCE000A1742 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8590E1525C6DBCE000A1742 /* ResultsViewController.m */; };
 		C86BADF225C259C900F280D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF125C259C900F280D4 /* AppDelegate.m */; };
 		C86BADF525C259C900F280D4 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF425C259C900F280D4 /* SceneDelegate.m */; };
 		C86BADF825C259C900F280D4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF725C259C900F280D4 /* MainViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8590E1425C6DBCE000A1742 /* ResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		C8590E1525C6DBCE000A1742 /* ResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		C86BADED25C259C900F280D4 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86BADF025C259C900F280D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C86BADF125C259C900F280D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -43,6 +46,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8590E0625C6D776000A1742 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C86BADF025C259C900F280D4 /* AppDelegate.h */,
+				C86BADF125C259C900F280D4 /* AppDelegate.m */,
+				C86BADF325C259C900F280D4 /* SceneDelegate.h */,
+				C86BADF425C259C900F280D4 /* SceneDelegate.m */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C8590E0725C6D7E4000A1742 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C86BADF625C259C900F280D4 /* MainViewController.h */,
+				C86BADF725C259C900F280D4 /* MainViewController.m */,
+				C8590E1425C6DBCE000A1742 /* ResultsViewController.h */,
+				C8590E1525C6DBCE000A1742 /* ResultsViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C8590E0825C6D813000A1742 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C86BAE0C25C3A51E00F280D4 /* CustomCollectionViewCell.h */,
+				C86BAE0D25C3A51E00F280D4 /* CustomCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C86BADE425C259C900F280D4 = {
 			isa = PBXGroup;
 			children = (
@@ -62,15 +96,10 @@
 		C86BADEF25C259C900F280D4 /* SearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				C86BADF025C259C900F280D4 /* AppDelegate.h */,
-				C86BADF125C259C900F280D4 /* AppDelegate.m */,
-				C86BADF325C259C900F280D4 /* SceneDelegate.h */,
-				C86BADF425C259C900F280D4 /* SceneDelegate.m */,
-				C86BADF625C259C900F280D4 /* MainViewController.h */,
-				C86BADF725C259C900F280D4 /* MainViewController.m */,
-				C86BAE0C25C3A51E00F280D4 /* CustomCollectionViewCell.h */,
-				C86BAE0D25C3A51E00F280D4 /* CustomCollectionViewCell.m */,
+				C8590E0725C6D7E4000A1742 /* ViewControllers */,
+				C8590E0825C6D813000A1742 /* Views */,
 				C86BADFC25C259D700F280D4 /* Assets.xcassets */,
+				C8590E0625C6D776000A1742 /* Supporting files */,
 				C86BADFE25C259D700F280D4 /* LaunchScreen.storyboard */,
 				C86BAE0125C259D700F280D4 /* Info.plist */,
 				C86BAE0225C259D700F280D4 /* main.m */,
@@ -149,6 +178,7 @@
 				C86BADF825C259C900F280D4 /* MainViewController.m in Sources */,
 				C86BADF225C259C900F280D4 /* AppDelegate.m in Sources */,
 				C86BAE0325C259D700F280D4 /* main.m in Sources */,
+				C8590E1625C6DBCE000A1742 /* ResultsViewController.m in Sources */,
 				C86BADF525C259C900F280D4 /* SceneDelegate.m in Sources */,
 				C86BAE0E25C3A51E00F280D4 /* CustomCollectionViewCell.m in Sources */,
 			);

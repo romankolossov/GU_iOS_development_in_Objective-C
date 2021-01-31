@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MainViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
