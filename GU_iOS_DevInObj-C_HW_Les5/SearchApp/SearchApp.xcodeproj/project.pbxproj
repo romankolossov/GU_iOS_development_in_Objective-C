@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C8590E1625C6DBCE000A1742 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8590E1525C6DBCE000A1742 /* ResultsViewController.m */; };
+		C8590E1B25C7139E000A1742 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8590E1A25C7139E000A1742 /* TabBarController.m */; };
+		C8590E2025C7162E000A1742 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8590E1F25C7162E000A1742 /* SecondViewController.m */; };
 		C86BADF225C259C900F280D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF125C259C900F280D4 /* AppDelegate.m */; };
 		C86BADF525C259C900F280D4 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF425C259C900F280D4 /* SceneDelegate.m */; };
 		C86BADF825C259C900F280D4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86BADF725C259C900F280D4 /* MainViewController.m */; };
@@ -20,6 +22,10 @@
 /* Begin PBXFileReference section */
 		C8590E1425C6DBCE000A1742 /* ResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		C8590E1525C6DBCE000A1742 /* ResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		C8590E1925C7139E000A1742 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		C8590E1A25C7139E000A1742 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		C8590E1E25C7162E000A1742 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		C8590E1F25C7162E000A1742 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		C86BADED25C259C900F280D4 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86BADF025C259C900F280D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C86BADF125C259C900F280D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,6 +70,10 @@
 				C86BADF725C259C900F280D4 /* MainViewController.m */,
 				C8590E1425C6DBCE000A1742 /* ResultsViewController.h */,
 				C8590E1525C6DBCE000A1742 /* ResultsViewController.m */,
+				C8590E1925C7139E000A1742 /* TabBarController.h */,
+				C8590E1A25C7139E000A1742 /* TabBarController.m */,
+				C8590E1E25C7162E000A1742 /* SecondViewController.h */,
+				C8590E1F25C7162E000A1742 /* SecondViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,9 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8590E1B25C7139E000A1742 /* TabBarController.m in Sources */,
 				C86BADF825C259C900F280D4 /* MainViewController.m in Sources */,
 				C86BADF225C259C900F280D4 /* AppDelegate.m in Sources */,
 				C86BAE0325C259D700F280D4 /* main.m in Sources */,
+				C8590E2025C7162E000A1742 /* SecondViewController.m in Sources */,
 				C8590E1625C6DBCE000A1742 /* ResultsViewController.m in Sources */,
 				C86BADF525C259C900F280D4 /* SceneDelegate.m in Sources */,
 				C86BAE0E25C3A51E00F280D4 /* CustomCollectionViewCell.m in Sources */,

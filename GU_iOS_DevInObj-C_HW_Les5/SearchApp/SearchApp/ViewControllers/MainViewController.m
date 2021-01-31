@@ -34,8 +34,9 @@
 }
 
 //MARK: - Configure
+
 - (void)configureMainVC {
-    self.title = @"Cars";
+    self.title = @"Favorite cars";
     
     self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
@@ -60,7 +61,7 @@
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.backgroundColor = [UIColor lightGrayColor];
     
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
