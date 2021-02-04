@@ -45,7 +45,7 @@
     self.newsTableView.delegate = self;
 
     self.newsTableView.backgroundColor = [UIColor yellowColor];
-    self.newsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.newsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     [self.view addSubview:_newsTableView];
 }
@@ -100,8 +100,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     OneNewsViewController *oneNewsVC = [[OneNewsViewController alloc] init];
     
-    //oneNewsVC.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
-    oneNewsVC.newsTextView.text = @"qfwqw";
+    oneNewsVC.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
     
     [self.navigationController pushViewController:oneNewsVC animated:YES];
 }
@@ -109,7 +108,7 @@
 // MARK: - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88.0;
+    return 120.0;
 }
 
 @end
