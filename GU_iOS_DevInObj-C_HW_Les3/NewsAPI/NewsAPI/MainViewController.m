@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 #import "NewsTableViewCell.h"
 #import "NewsAPIManager.h"
+#import "OneNewsViewController.h"
 
 @interface MainViewController ()
 
@@ -94,6 +95,15 @@
     newsCell.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
 
     return newsCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OneNewsViewController *oneNewsVC = [[OneNewsViewController alloc] init];
+    
+    //oneNewsVC.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
+    oneNewsVC.newsTextView.text = @"qfwqw";
+    
+    [self.navigationController pushViewController:oneNewsVC animated:YES];
 }
 
 // MARK: - Table view delegate
