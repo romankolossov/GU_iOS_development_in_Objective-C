@@ -8,6 +8,7 @@
 #import "MainViewController.h"
 #import "NewsTableViewCell.h"
 #import "NewsAPIManager.h"
+#import "OneNewsViewController.h"
 
 @interface MainViewController ()
 
@@ -44,7 +45,7 @@
     self.newsTableView.delegate = self;
 
     self.newsTableView.backgroundColor = [UIColor yellowColor];
-    self.newsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.newsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     [self.view addSubview:_newsTableView];
 }
@@ -96,10 +97,18 @@
     return newsCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OneNewsViewController *oneNewsVC = [[OneNewsViewController alloc] init];
+    
+    oneNewsVC.newsTextView.text = [NSString stringWithFormat:@"News: %@", self.newsElements[indexPath.row]];
+    
+    [self.navigationController pushViewController:oneNewsVC animated:YES];
+}
+
 // MARK: - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88.0;
+    return 120.0;
 }
 
 @end
